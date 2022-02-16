@@ -1,0 +1,16 @@
+{
+  "CN": "system:kube-controller-manager",
+  "key": {
+    "algo": "rsa",
+    "size": 4096
+  },
+  "names": [
+    {
+      "C": "JP",
+      "L": "Hoge",
+      "O": "system:kube-controller-manager",
+      "OU": "",
+      "ST": "Tokyo"
+    }
+  ]
+}

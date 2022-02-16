@@ -1,0 +1,16 @@
+{
+  "CN": "kube-proxy",
+  "key": {
+    "algo": "rsa",
+    "size": 4096
+  },
+  "names": [
+    {
+      "C": "JP",
+      "L": "Hoge",
+      "O": "system:node-proxier",
+      "OU": "",
+      "ST": "Tokyo"
+    }
+  ]
+}

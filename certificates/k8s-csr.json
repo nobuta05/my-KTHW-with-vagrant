@@ -1,0 +1,16 @@
+{
+  "CN": "k8s",
+  "key": {
+    "algo": "rsa",
+    "size": 4096
+  },
+  "names": [
+    {
+      "C": "JP",
+      "L": "Hoge",
+      "O": "kubernetes",
+      "OU": "",
+      "ST": "Tokyo"
+    }
+  ]
+}

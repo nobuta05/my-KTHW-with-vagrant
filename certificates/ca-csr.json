@@ -1,0 +1,16 @@
+{
+  "CN": "nobuta05.k8s.site",
+  "key": {
+    "algo": "rsa",
+    "size": 4096
+  },
+  "names": [
+    {
+      "C": "JP",
+      "L": "Hoge",
+      "O": "Personal",
+      "OU": "",
+      "ST": "Tokyo"
+    }
+  ]
+}

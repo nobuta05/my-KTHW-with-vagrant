@@ -1,0 +1,26 @@
+== 暗号化通信に必要なもの
+
+. 認証局
+. サーバ
+. クライアント
+
+`ca-csr.json`::
+  認証局自体も証明書が必要となる。
+  CSRは証明書署名要求と呼ばれるもの
+`admin-csr.json`::
+  外部から `kubectl` を使ってk8sを管理する
+  admin userを認証する証明書のためのCSR
+`agent-(0|1|2)-csr.json`::
+  各worker nodes(のkubelet)のための証明書のCSR
+`kube-controller-manager-csr.json`::
+  kube-controller-managerの証明書のCSR
+`kube-proxy-csr.json`::
+  各nodesのkube-proxyのための証明書のCSR
+`k8s-csr.json`::
+  (要確認) API server <-> etcd, API server <-> API server での通信に用いる証明書のCSR
+
+=== `csr-info.json` の構成
+
+CN::
+  コモンネームの略称
+  SSL暗号化通信を行うサイトのURL(FQDN)を指定

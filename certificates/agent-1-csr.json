@@ -1,0 +1,16 @@
+{
+  "CN": "system:node:agent-1",
+  "key": {
+    "algo": "rsa",
+    "size": 4096
+  },
+  "names": [
+    {
+      "C": "JP",
+      "L": "Hoge",
+      "O": "system:nodes",
+      "OU": "",
+      "ST": "Tokyo"
+    }
+  ]
+}
