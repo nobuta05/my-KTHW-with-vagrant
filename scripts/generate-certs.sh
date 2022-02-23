@@ -26,13 +26,13 @@ cfssl gencert \
   admin-csr.json | cfssljson -bare admin
 
 # 3. agent(kubelet in worker nodes)のクライアント証明書生成
-for i in {0..2}; do
+for n in {0..1}; do
   cfssl gencert \
     -ca=ca.pem \
     -ca-key=ca-key.pem \
     -config=ca-config.json \
     -profile=k8s \
-    "agent-${i}-csr.json" | cfssljson -bare "agent-${i}"
+    "agent-${n}-csr.json" | cfssljson -bare "agent-${n}"
 done
 
 # 4. kube-controler-managerのクライアント証明書生成
@@ -43,7 +43,8 @@ cfssl gencert \
   -profile=k8s \
   kube-controller-manager-csr.json | cfssljson -bare kube-controller-manager
 
-# 5. kube-proxy(各nodeで動作しk8s関連のネットワーク制御を管理するプロセス)のクライアント証明書作成
+# 5. kube-proxy(各nodeで動作しk8s関連のネットワーク制御を管理するプロセス)の
+#    クライアント証明書作成
 cfssl gencert \
   -ca=ca.pem \
   -ca-key=ca-key.pem \
@@ -59,15 +60,18 @@ cfssl gencert \
   -profile=k8s \
   kube-scheduler-csr.json | cfssljson -bare kube-scheduler
 
-
-
-# x. (要確認) API server <-> etcd, API server <-> API server のための証明書作成
+# 7. API server <-> etcd のための証明書作成
+##   要確認: 192.168.199.40が必要か
+##   要確認: API server <-> kubectl のための
+##          クライアント証明書としても使われているっぽい？
+##          systemd file for api-serverを見ると、
+##          etcdとkubectlの2箇所でk8s.pemが使われている
 cfssl gencert \
   -ca=ca.pem \
   -ca-key=ca-key.pem \
   -config=ca-config.json \
   -profile=k8s \
-  -hostname=192.168.199.40,192.168.199.10,192.168.199.11,192.168.199.12,127.0.0.1,kubernetes.default \
+  -hostname=192.168.199.40,192.168.199.10,192.168.199.11,127.0.0.1,kubernetes.default \
   k8s-csr.json | cfssljson -bare k8s
 
 

@@ -1,1 +1,5 @@
 .vagrant
+*.pem
+*.csr
+*.service
+*.kubeconfig

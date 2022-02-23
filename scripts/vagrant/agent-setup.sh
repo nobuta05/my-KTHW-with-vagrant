@@ -23,3 +23,7 @@ agent-2)
   route add -net 10.22.0.0/16 gw 192.168.199.22
   ;;
 esac
+
+# swap off # ここらへんが正しく動作しているか要確認
+swapoff -a
+sed -i "s/^\/swap/## \/swap/g" /etc/fstab

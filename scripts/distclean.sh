@@ -8,4 +8,6 @@ cd ${dir}/../
 rm -rfv ./certificates/*.pem
 rm -rfv ./certificates/*.csr
 
+rm -rfv ./config/*kubeconfig
+
 cd ${originDir}
